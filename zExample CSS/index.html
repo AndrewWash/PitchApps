@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+			content="width=device-width, initial-scale=1.0">
+	<title>Simple Speed - Absolute Pitch Trainer</title>
+	<link rel="stylesheet"
+			href="styles.css">
+</head>
+<body>
+<div class="container">
+	<!-- Mode Selection Screen -->
+	<div class="mode-selection-screen"
+			id="modeSelectionScreen">
+		<h1>Simple Speed - Absolute Pitch Trainer</h1>
+		<p class="subtitle">Multi-instrument, multi-octave pitch recognition training</p>
+
+		<div class="loading-status loading"
+				id="loadingStatus">
+			🎵 Loading audio files...
+		</div>
+
+
+		<!-- Instrument Selector -->
+		<div class="instrument-selector"
+				id="instrumentSelector">
+			<h3>🎼 Select Instruments</h3>
+			<div class="instrument-checkboxes"
+					id="instrumentCheckboxes">
+				<label>
+					<input type="checkbox"
+							value="piano"
+							class="instrument-checkbox"
+							checked> <span>🎹 Piano</span>
+				</label>
+				<label>
+					<input type="checkbox"
+							value="guitar"
+							class="instrument-checkbox"> <span>🎸 Guitar</span>
+				</label>
+				<label>
+					<input type="checkbox"
+							value="sax"
+							class="instrument-checkbox"> <span>🎷 Saxophone</span>
+				</label>
+			</div>
+			<div id="multiInstrumentLabel"></div>
+		</div>
+
+		<!-- Octave Selector -->
+		<div class="octave-selector"
+				id="octaveSelector">
+			<h3>🔢 Select Octaves</h3>
+			<p class="octave-subtext">Train across multiple octaves for advanced pitch recognition</p>
+			<div class="octave-checkboxes">
+				<label>
+					<input type="checkbox"
+							value="2"
+							class="octave-checkbox"><span>Octave 2</span>
+				</label>
+				<label>
+					<input type="checkbox"
+							value="3"
+							class="octave-checkbox"
+							checked> <span>Octave 3</span>
+				</label>
+				<label>
+					<input type="checkbox"
+							value="4"
+							class="octave-checkbox"> <span>Octave 4</span>
+				</label>
+				<label>
+					<input type="checkbox"
+							value="5"
+							class="octave-checkbox"> <span>Octave 5 (piano only)</span>
+				</label>
+			</div>
+			<div id="multiOctaveLabel"></div>
+		</div>
+
+
+		<!-- Extreme Mode Selector -->
+		<div class="extreme-mode-selector"
+				id="extremeModeSelector">
+			<h3>🔥 Extreme Mode</h3>
+			<p class="extreme-mode-subtext">32 notes with 6 targets (instead of 16 notes with 4 targets)</p>
+			<div class="toggle-container">
+				<span>Normal</span>
+				<div class="toggle-switch"
+						id="extremeModeToggle">
+					<div class="slider"></div>
+				</div>
+				<span>Extreme</span>
+			</div>
+			<p class="extreme-mode-subtext">Remove 500ms delay between notes</p>
+			<div class="toggle-container">
+				<span>With Delay</span>
+				<div class="toggle-switch"
+						id="noDelayToggle">
+					<div class="slider"></div>
+				</div>
+				<span>No Delay</span>
+			</div>
+		</div>
+
+		<div class="mode-grid"
+				id="modeGrid"
+				style="display: none;">
+			<div class="mode-card available"
+					id="naturalsMode">
+				<div class="mode-icon">🎹</div>
+				<div class="mode-title">Natural Notes</div>
+				<div class="mode-description">Train with the 7 natural notes of the C major scale</div>
+				<div class="mode-details">14 trials • C, D, E, F, G, A, B</div>
+			</div>
+
+			<div class="mode-card available"
+					id="chromaticMode">
+				<div class="mode-icon">♯</div>
+				<div class="mode-title">Complete Chromatic</div>
+				<div class="mode-description">Full chromatic scale training with all 12 semitones</div>
+				<div class="mode-details">24 trials • All notes including sharps</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Game Screen -->
+	<div class="game-screen"
+			id="gameScreen">
+ 	<button class="back-to-modes"
+				id="backToModes">← Back to Modes
+		</button>
+		<button class="cancel-trial"
+				id="cancelTrial" style="display: none;">✕ Cancel Trial
+		</button>
+
+		<div class="game-header">
+			<h1>Simple Speed Training <span class="mode-badge"
+					id="modeBadge">NATURALS</span></h1>
+			<p class="subtitle">Respond when you hear the target note!</p>
+		</div>
+
+		<div class="randomize-option">
+			<div class="toggle-label">Trial Order</div>
+			<div class="toggle-container">
+				<span>Fixed Order</span>
+				<div class="toggle-switch"
+						id="randomizeToggle">
+					<div class="slider"></div>
+				</div>
+				<span>Randomized</span>
+			</div>
+			<div class="toggle-description"
+					id="toggleDescription">
+			</div>
+		</div>
+
+		<div class="phase-indicator"
+				id="phaseIndicator">
+			Ready to start - 14 trials ahead (7 notes × 2 repetitions)
+		</div>
+
+		<div class="stats">
+			<div class="stat-box">
+				<div class="stat-number"
+						id="trialCount">0
+				</div>
+				<div class="stat-label">Trial</div>
+			</div>
+			<div class="stat-box">
+				<div class="stat-number"
+						id="correctCount">0
+				</div>
+				<div class="stat-label">Correct Hits</div>
+			</div>
+			<div class="stat-box">
+				<div class="stat-number"
+						id="accuracy">0%
+				</div>
+				<div class="stat-label">Accuracy</div>
+			</div>
+			<div class="stat-box">
+				<div class="stat-number"
+						id="avgReactionTime">0ms
+				</div>
+				<div class="stat-label">Avg Reaction Time</div>
+			</div>
+		</div>
+
+		<div class="target-note"
+				id="targetNote">Press Start to Begin
+		</div>
+
+		<!-- Fixed Feedback Container -->
+		<div class="feedback-container">
+			<div class="feedback empty"
+					id="feedback">
+			</div>
+		</div>
+
+		<div class="controls">
+			<button class="start-btn"
+					id="startBtn">Start Training (14 trials)
+			</button>
+		</div>
+
+		<!-- Mobile Response Button -->
+		<button class="response-button"
+				id="responseButton">
+			TAP WHEN YOU HEAR TARGET
+		</button>
+
+		<div class="input-methods"
+				id="inputMethods">
+			<h4>How to Respond:</h4>
+			<p>🖱️ <strong>Desktop:</strong> Press SPACEBAR when you hear the target note</p>
+			<p>📱 <strong>Mobile:</strong> Tap the blue button when you hear the target note</p>
+		</div>
+	</div>
+</div>
+
+<script src="app.js"
+		type="module"></script>
+</body>
+</html>

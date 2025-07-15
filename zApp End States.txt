@@ -1,0 +1,72 @@
+This document will outline the deliverables of the applications:
+
+Grand Staff integration. oh yeah.
+
+X. landing screen that allows users to pick from a 'suite' of applications
+    a. SimpleSpeed
+    b. Note Identifier
+    c. Interval Flashcards
+    d.
+    e.
+    f.
+
+X. For all game modes, user will be able to select an instrument and octaves (much like simple speed interface)
+X. The game modes and descriptions are as follows:
+    a. Note Identifier: User will pick an instrument, octaves, and chromatic tones, any combination from the 12 tones, and
+    the number of rounds - default is 20 rounds with an option to tick a box for "endless" mode that does not have a round limit.
+    Note: If the user selects multiple instruments and multiple octaves, when a random note is played that must be identified,
+    it can play the note from any octave.
+        i. the note selectin screen will just be 12 buttons laid out like a piano keyboard.
+            (a). C, D, E, F, G, A, B on the bottom row
+            (b) C#/Db (on a top row between C and D); D#/Eb (on top row between D and E); F#/Gb (on top row between F and G); G#/Ab (on top row between G and A); A#/Bb (on top row between A and B)
+
+
+    b. allow user to select which notes
+
+
+math instead??
+Note2 = Note1 + 10 semitones (mod 12) for major 7th pairs
+
+
+---REFERENCES FOR NOTE/CHORD INFO---
+INTERVALS:
+    1. Major 2nds (2 semitones)
+        - C-D; C#-D#; D-E; D#-F; E-F#; F-G; F#-G#; G-A; G#-A#; A-B; A#-C; B-C#
+    2. Minor 2nds (1 semitones)
+        - C–C#; C#–D; D–D#; D#–E; E–F; F–F#; F#–G; G–G#; G#–A; A–A#; A#–B; B–C;
+    3. Major 3rd (4 semitones)
+        - C–E; C#–F; D–F#; D#–G; E–G#; F–A; F#–A#; G–B; G#–C; A–C#; A#–D; B–D#;
+    4. Minor 3rd (3 semitones)
+        - C–D#; C#–E; D–F; D#–F#; E–G; F–G#; F#–A; G–A#; G#–B; A–C; A#–C#; B–D;
+    5. Perfect 4th (5 semitones)
+        - C–F; C#–F#; D–G; D#–G#; E–A; F–A#; F#–B; G–C; G#–C#; A–D; A#–D#; B–E;
+    6. Perfect 5th (7 semitones)
+        - C–G; C#–G#; D–A; D#–A#; E–B; F–C; F#–C#; G–D; G#–D#; A–E; A#–F; B–F#;
+    7. Major 6th (9 semitones)
+        - C–A; C#–A#; D–B; D#–C; E–C#; F–D; F#–D#; G–E; G#–F; A–F#; A#–G; B–G#;
+    8. Minor 6th (8 semitones)
+        - C–G#; C#–A; D–A#; D#–B; E–C; F–C#; F#–D; G–D#; G#–E; A–F; A#–F#; B–G;
+    9. Major 7th (11 semitones)
+        - C–B; C#–C; D–C#; D#–D; E–D#; F–E; F#–F; G–F#; G#–G; A–G#; A#–A; B–A#;
+    10. Minor 7th (10 semitones)
+        - C–A#; C#–B; D–C; D#–C#; E–D; F–D#; F#–E; G–F; G#–F#; A–G; A#–G#; B–A;
+    11. Octaves (12 semitones)
+        - C–C; C#–C#; D–D; D#–D#; E–E; F–F; F#–F#; G–G; G#–G#; A–A; A#–A#; B–B;
+
+
+    List of all Major Triads:
+        -base: (0-4-7 semitone distances)
+            - C–E–G; C#–F–G#; D–F#–A; D#–G–A#; E–G#–B; F–A–C; F#–A#–C#; G–B–D; G#–C–D#; A–C#–E; A#–D–F; B–D#–F#;
+        -1st inversion: (4-7-0 semitone distances)
+            - E–G–C; F–G#–C#; F#–A–D; G–A#–D#; G#–B–E; A–C–F; A#–C#–F#; B–D–G; C–D#–G#; C#–E–A; D–F–A#; D#–F#–B;
+        -2nd inversion: (7-0-4 semitone distances)
+            - G–C–E; G#–C#–F; A–D–F#; A#–D#–G; B–E–G#; C–F–A; C#–F#–A#; D–G–B; D#–G#–C; E–A–C#; F–A#–D; F#–B–D#;
+
+    List of all Minor Triads:
+        -base: (0-3-7 semitone distances)
+            - C–D#–G; C#–E–G#; D–F–A; D#–F#–A#; E–G–B; F–G#–C; F#–A–C#; G–A#–D; G#–B–D#; A–C–E; A#–C#–F; B–D–F#;
+        -1st inversion: (3-7-0 semitone distances)
+            - D#–G–C; E–G#–C#; F–A–D; F#–A#–D#; G–B–E; G#–C–F; A–C#–F#; A#–D–G; B–D#–G#; C–E–A; C#–F–A#; D–F#–B;
+        -2nd inversion: (7-0-3 semitone distances)
+            - G–C–D#; G#–C#–E; A–D–F; A#–D#–F#; B–E–G; C–F–G#; C#–F#–A; D–G–A#; D#–G#–B; E–A–C; F–A#–C#; F#–B–D;
+
