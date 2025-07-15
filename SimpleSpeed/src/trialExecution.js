@@ -18,7 +18,7 @@ let targetPositions = [];
 let noteTimeout;
 let currentMode = 'naturals';
 
-// Note display mapping
+// Note display mapping yeah baby
 const noteDisplayNames = {
     'C': 'C', 'CSharp': 'C#', 'D': 'D', 'DSharp': 'D#', 'E': 'E', 'F': 'F',
     'FSharp': 'F#', 'G': 'G', 'GSharp': 'G#', 'A': 'A', 'ASharp': 'A#', 'B': 'B'

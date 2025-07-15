@@ -70,3 +70,6 @@ INTERVALS:
         -2nd inversion: (7-0-3 semitone distances)
             - G–C–D#; G#–C#–E; A–D–F; A#–D#–F#; B–E–G; C–F–G#; C#–F#–A; D–G–A#; D#–G#–B; E–A–C; F–A#–C#; F#–B–D;
 
+
+            more list more list etc etc test test test
+
